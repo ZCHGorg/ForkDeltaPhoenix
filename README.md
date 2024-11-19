@@ -1,7 +1,5 @@
 # ForkDeltaPhoenix
 
-# ForkDelta
-
 ForkDelta is a decentralized exchange (DEX) that allows users to trade ERC20 tokens directly from their wallets. Built on the Ethereum blockchain, ForkDelta ensures secure, transparent, and trustless token exchanges.
 
 This repository contains the source code for ForkDelta, including the front-end interface and integration with Ethereum smart contracts.
