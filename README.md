@@ -114,12 +114,14 @@ import Web3 from 'web3';
 2. Via a CDN
 Include it directly in your HTML file:
 html
-Copy code
+```bash 
 <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
+```
 Once included, web3 will be available globally as a JavaScript object:
 javascript
-Copy code
+```bash
 const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+```
 3. Via a Framework Like Truffle or Hardhat
 If you're using a framework like Truffle or Hardhat, they often come with tools to integrate web3.js. You'll still need to install it as part of your project dependencies.
 How Does It Work in the Front-End Code?
