@@ -61,13 +61,6 @@ npm run build
 yarn build
 The production-ready files will be generated in the build directory.
 
-Instructions
-Replace "YOUR_CONTRACT_ADDRESS" and "YOUR_ABI" with the actual contract address and ABI.
-Host the files on a local server (e.g., using Live Server in VS Code).
-Ensure your Ethereum wallet (e.g., MetaMask) is set to the correct network.
-Open the application in a browser, connect the wallet, and start interacting with the contract.
-This is a basic front end to get started. You can extend it with additional features like order creation, trading, and event listening for real-time updates.
-
 Usage
 Open the application in your browser.
 Connect your wallet using MetaMask or a similar Ethereum wallet.
