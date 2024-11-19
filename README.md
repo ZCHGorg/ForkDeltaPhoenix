@@ -31,13 +31,15 @@ Follow these steps to set up and run the project locally:
 git clone https://github.com/your-username/forkdelta.git
 cd forkdelta
 ```
-### 1. Clone the Repository 2. Install Dependencies
-bash
+### 2. Install Dependencies
+```bash
 Copy code
 npm install
 # or
 yarn install
-3. Configure Environment Variables
+```
+
+### 3. Configure Environment Variables
 Create a .env file in the root directory and configure the following:
 
 env
