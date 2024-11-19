@@ -104,13 +104,14 @@ web3.js is typically included as a library that provides an API for communicatin
 
 1. Via npm (Recommended for Modern Applications)
 Install the library using npm or yarn:
-bash
-Copy code
+```bash
 npm install web3
+```
 Import it into your JavaScript/TypeScript file:
 javascript
-Copy code
+```bash
 import Web3 from 'web3';
+```
 2. Via a CDN
 Include it directly in your HTML file:
 html
@@ -127,9 +128,10 @@ If you're using a framework like Truffle or Hardhat, they often come with tools 
 How Does It Work in the Front-End Code?
 Use web3.js to interact with the Ethereum network and smart contracts. For instance:
 javascript
-Copy code
+```bash
 const web3 = new Web3(window.ethereum); // Use the browser's Ethereum provider
 const contract = new web3.eth.Contract(abi, contractAddress);
+```
 
 // Example of calling a contract method
 contract.methods.balanceOf(accountAddress).call()
