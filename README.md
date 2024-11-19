@@ -33,7 +33,6 @@ cd forkdelta
 ```
 ### 2. Install Dependencies
 ```bash
-Copy code
 npm install
 # or
 yarn install
@@ -43,7 +42,7 @@ yarn install
 Create a .env file in the root directory and configure the following:
 
 env
-Copy code
+```
 REACT_APP_INFURA_PROJECT_ID=<Your_Infura_Project_ID>
 REACT_APP_NETWORK=<mainnet|ropsten|rinkeby>
 Replace <Your_Infura_Project_ID> with your Infura project ID.
@@ -54,17 +53,18 @@ Copy code
 npm start
 # or
 yarn start
+```
 The application will be available at http://localhost:3000.
 
-5. Build for Production
-bash
-Copy code
+### 5. Build for Production
+```bash
 npm run build
 # or
 yarn build
+```
 The production-ready files will be generated in the build directory.
 
-Usage
+### Usage
 Open the application in your browser.
 Connect your wallet using MetaMask or a similar Ethereum wallet.
 Select the token pair you want to trade.
@@ -76,7 +76,7 @@ Exchange Contract: Handles order matching and token transfers.
 Token Contract: Implements the ERC20 standard.
 You can find the contract addresses in the src/config/contracts.js file.
 
-Technologies
+### Technologies
 React: Front-end library for building the user interface.
 Web3.js: Ethereum JavaScript API for blockchain interactions.
 Solidity: Smart contract programming language.
@@ -86,17 +86,19 @@ We welcome contributions to ForkDelta! Please follow these steps to contribute:
 
 Fork the repository.
 Create a new branch for your feature or bugfix:
-bash
+```bash
 Copy code
 git checkout -b feature-name
+```
 Commit your changes and push to your fork:
-bash
-Copy code
+```bash
 git commit -m "Add feature description"
 git push origin feature-name
+```
 Open a pull request with a detailed description of your changes.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+
+### License
+This project is licensed under the zCHG.org License. See the LICENSE file for details.
 
 Acknowledgements
 ForkDelta is a fork of the EtherDelta decentralized exchange. Special thanks to the Ethereum community for providing the tools and resources that made this project possible.
