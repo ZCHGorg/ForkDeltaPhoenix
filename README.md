@@ -1,4 +1,4 @@
-# ForkDeltaPhoenix
+# ForkDelta
 
 ForkDelta is a decentralized exchange (DEX) that allows users to trade ERC20 tokens directly from their wallets. Built on the Ethereum blockchain, ForkDelta ensures secure, transparent, and trustless token exchanges.
 
@@ -30,14 +30,13 @@ Follow these steps to set up and run the project locally:
 ```bash
 git clone https://github.com/your-username/forkdelta.git
 cd forkdelta
-
-### 2. Install Dependencies
+2. Install Dependencies
 bash
 Copy code
 npm install
 # or
 yarn install
-### 3. Configure Environment Variables
+3. Configure Environment Variables
 Create a .env file in the root directory and configure the following:
 
 env
@@ -46,7 +45,7 @@ REACT_APP_INFURA_PROJECT_ID=<Your_Infura_Project_ID>
 REACT_APP_NETWORK=<mainnet|ropsten|rinkeby>
 Replace <Your_Infura_Project_ID> with your Infura project ID.
 Set the network to either mainnet or a testnet like ropsten or rinkeby.
-### 4. Run the Development Server
+4. Run the Development Server
 bash
 Copy code
 npm start
@@ -54,7 +53,7 @@ npm start
 yarn start
 The application will be available at http://localhost:3000.
 
-### 5. Build for Production
+5. Build for Production
 bash
 Copy code
 npm run build
@@ -62,7 +61,7 @@ npm run build
 yarn build
 The production-ready files will be generated in the build directory.
 
-### Usage
+Usage
 Open the application in your browser.
 Connect your wallet using MetaMask or a similar Ethereum wallet.
 Select the token pair you want to trade.
