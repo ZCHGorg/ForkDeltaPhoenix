@@ -134,8 +134,10 @@ const contract = new web3.eth.Contract(abi, contractAddress);
 ```
 
 // Example of calling a contract method
+```bash
 contract.methods.balanceOf(accountAddress).call()
   .then(balance => console.log(`Balance: ${balance}`));
+```
 Make sure you have web3.js properly included in your environment based on your setup. 
 
 ### License
