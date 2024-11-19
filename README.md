@@ -28,8 +28,8 @@ Follow these steps to set up and run the project locally:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/forkdelta.git
-cd forkdelta
+git clone https://github.com/zchgorg/ForkDeltaPhoenix.git
+cd ForkDeltaPhoenix
 ```
 ### 2. Install Dependencies
 ```bash
