@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EtherDelta Front End</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>EtherDelta Interface</h1>
+    
+    <button id="connectWallet">Connect Wallet</button>
+    <p id="walletAddress"></p>
+
+    <h2>Token Balances</h2>
+    <div>
+      <label for="tokenAddress">Token Address:</label>
+      <input type="text" id="tokenAddress" placeholder="Enter Token Address">
+      <button id="checkBalance">Check Balance</button>
+      <p id="tokenBalance">Balance: --</p>
+    </div>
+
+    <h2>Deposit Ether</h2>
+    <div>
+      <label for="depositAmount">Amount (in ETH):</label>
+      <input type="text" id="depositAmount" placeholder="Enter amount">
+      <button id="depositEther">Deposit</button>
+    </div>
+
+    <h2>Withdraw Ether</h2>
+    <div>
+      <label for="withdrawAmount">Amount (in ETH):</label>
+      <input type="text" id="withdrawAmount" placeholder="Enter amount">
+      <button id="withdrawEther">Withdraw</button>
+    </div>
+  </div>
+
+  <script src="web3.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
