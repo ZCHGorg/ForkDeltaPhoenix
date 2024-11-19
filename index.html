@@ -3,40 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EtherDelta Front End</title>
-  <link rel="stylesheet" href="style.css">
+  <title>EtherDelta Interaction</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>EtherDelta Interface</h1>
-    
-    <button id="connectWallet">Connect Wallet</button>
-    <p id="walletAddress"></p>
+  <h1>EtherDelta Token Interaction</h1>
 
-    <h2>Token Balances</h2>
-    <div>
-      <label for="tokenAddress">Token Address:</label>
-      <input type="text" id="tokenAddress" placeholder="Enter Token Address">
-      <button id="checkBalance">Check Balance</button>
-      <p id="tokenBalance">Balance: --</p>
-    </div>
-
-    <h2>Deposit Ether</h2>
-    <div>
-      <label for="depositAmount">Amount (in ETH):</label>
-      <input type="text" id="depositAmount" placeholder="Enter amount">
-      <button id="depositEther">Deposit</button>
-    </div>
-
-    <h2>Withdraw Ether</h2>
-    <div>
-      <label for="withdrawAmount">Amount (in ETH):</label>
-      <input type="text" id="withdrawAmount" placeholder="Enter amount">
-      <button id="withdrawEther">Withdraw</button>
-    </div>
+  <div>
+    <h2>Account Info</h2>
+    <p>Account Address: <span id="accountAddress"></span></p>
+    <p>ETH Balance: <span id="ethBalance"></span></p>
+    <p>Token Balance: <span id="tokenBalance"></span></p>
   </div>
 
-  <script src="web3.min.js"></script>
-  <script src="app.js"></script>
+  <div>
+    <h2>Deposit Ether</h2>
+    <input type="number" id="depositAmount" placeholder="Amount in ETH" />
+    <button onclick="depositEther()">Deposit Ether</button>
+  </div>
+
+  <div>
+    <h2>Withdraw Ether</h2>
+    <input type="number" id="withdrawAmount" placeholder="Amount in ETH" />
+    <button onclick="withdrawEther()">Withdraw Ether</button>
+  </div>
+
+  <div>
+    <h2>Deposit Token</h2>
+    <input type="number" id="tokenDepositAmount" placeholder="Amount of Token" />
+    <button onclick="depositToken()">Deposit Token</button>
+  </div>
+
+  <div>
+    <h2>Withdraw Token</h2>
+    <input type="number" id="tokenWithdrawAmount" placeholder="Amount of Token" />
+    <button onclick="withdrawToken()">Withdraw Token</button>
+  </div>
+
+  <div>
+    <h2>Place Order</h2>
+    <input type="text" id="orderTokenGet" placeholder="Token to Get" />
+    <input type="number" id="orderAmountGet" placeholder="Amount to Get" />
+    <input type="text" id="orderTokenGive" placeholder="Token to Give" />
+    <input type="number" id="orderAmountGive" placeholder="Amount to Give" />
+    <button onclick="placeOrder()">Place Order</button>
+  </div>
+
+  <div>
+    <h2>Cancel Order</h2>
+    <input type="text" id="cancelOrderHash" placeholder="Order Hash" />
+    <button onclick="cancelOrder()">Cancel Order</button>
+  </div>
+
+  <script>
+    // Setup Web3.js
+    let web3;
+    let contract;
+    let account;
+    let etherDeltaAddress = 'YOUR_CONTRACT_ADDRESS';  // Replace with actual contract address
+    let tokenAddress = 'YOUR_TOKEN_ADDRESS';  // Replace with actual token contract address
+
+    // Initialize Web3
+    if (window.ethereum) {
+      web3 = new Web3(window.ethereum);
+      window.ethereum.enable().then(initialize);
+    } else {
+      alert('Please install MetaMask!');
+    }
+
+    // Initialize contract
+    async function initialize() {
+      const accounts = await web3.eth.getAccounts();
+      account = accounts[0];
+
+      // Set account info in UI
+      document.getElementById('accountAddress').innerText = account;
+      
+      // Load contract ABI and interact
+      const abi = [/* Insert ABI from EtherDelta Contract here */];
+      contract = new web3.eth.Contract(abi, etherDeltaAddress);
+      
+      // Update balances
+      updateBalance();
+    }
+
+    // Update ETH and token balances
+    async function updateBalance() {
+      const ethBalance = await web3.eth.getBalance(account);
+      document.getElementById('ethBalance').innerText = web3.utils.fromWei(ethBalance, 'ether') + " ETH";
+      
+      const tokenContract = new web3.eth.Contract([/* Insert ABI for the Token here */], tokenAddress);
+      const tokenBalance = await tokenContract.methods.balanceOf(account).call();
+      document.getElementById('tokenBalance').innerText = tokenBalance;
+    }
+
+    // Deposit Ether
+    async function depositEther() {
+      const amount = document.getElementById('depositAmount').value;
+      const weiAmount = web3.utils.toWei(amount, 'ether');
+      
+      await contract.methods.deposit().send({ from: account, value: weiAmount });
+      alert('Ether deposited successfully');
+      updateBalance();
+    }
+
+    // Withdraw Ether
+    async function withdrawEther() {
+      const amount = document.getElementById('withdrawAmount').value;
+      const weiAmount = web3.utils.toWei(amount, 'ether');
+      
+      await contract.methods.withdraw(weiAmount).send({ from: account });
+      alert('Ether withdrawn successfully');
+      updateBalance();
+    }
+
+    // Deposit Token
+    async function depositToken() {
+      const amount = document.getElementById('tokenDepositAmount').value;
+      const tokenContract = new web3.eth.Contract([/* Insert Token ABI here */], tokenAddress);
+      
+      await tokenContract.methods.approve(etherDeltaAddress, amount).send({ from: account });
+      await contract.methods.depositToken(tokenAddress, amount).send({ from: account });
+      alert('Token deposited successfully');
+      updateBalance();
+    }
+
+    // Withdraw Token
+    async function withdrawToken() {
+      const amount = document.getElementById('tokenWithdrawAmount').value;
+      await contract.methods.withdrawToken(tokenAddress, amount).send({ from: account });
+      alert('Token withdrawn successfully');
+      updateBalance();
+    }
+
+    // Place Order
+    async function placeOrder() {
+      const tokenGet = document.getElementById('orderTokenGet').value;
+      const amountGet = document.getElementById('orderAmountGet').value;
+      const tokenGive = document.getElementById('orderTokenGive').value;
+      const amountGive = document.getElementById('orderAmountGive').value;
+      const expires = Math.floor(Date.now() / 1000) + 3600; // 1 hour expiry
+      const nonce = web3.utils.randomHex(32);
+      
+      await contract.methods.order(tokenGet, amountGet, tokenGive, amountGive, expires, nonce).send({ from: account });
+      alert('Order placed successfully');
+    }
+
+    // Cancel Order
+    async function cancelOrder() {
+      const orderHash = document.getElementById('cancelOrderHash').value;
+      const v = 27; // example, you'll need to calculate actual v, r, s
+      const r = '0x'; // example
+      const s = '0x'; // example
+      
+      await contract.methods.cancelOrder(orderHash, v, r, s).send({ from: account });
+      alert('Order canceled successfully');
+    }
+  </script>
 </body>
 </html>
