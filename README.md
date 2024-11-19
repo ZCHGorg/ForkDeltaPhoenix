@@ -1,4 +1,4 @@
-# ForkDelta
+# ForkDelta Phoenix
 
 ForkDelta is a decentralized exchange (DEX) that allows users to trade ERC20 tokens directly from their wallets. Built on the Ethereum blockchain, ForkDelta ensures secure, transparent, and trustless token exchanges.
 
@@ -143,5 +143,16 @@ Make sure you have web3.js properly included in your environment based on your s
 ### License
 This project is licensed under the zCHG.org License. See the LICENSE file for details.
 
-Acknowledgements
+### Acknowledgements
 ForkDelta is a fork of the EtherDelta decentralized exchange. Special thanks to the Ethereum community for providing the tools and resources that made this project possible.
+
+File Structure
+arduino
+```bash
+project/
+│
+├── index.html       // Main HTML file
+├── style.css        // Basic styling
+├── app.js           // JavaScript logic for interacting with the contract
+└── web3.min.js      // Web3.js library
+```
