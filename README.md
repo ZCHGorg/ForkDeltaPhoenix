@@ -42,14 +42,16 @@ yarn install
 Create a .env file in the root directory and configure the following:
 
 env
-```
+```bash
 REACT_APP_INFURA_PROJECT_ID=<Your_Infura_Project_ID>
 REACT_APP_NETWORK=<mainnet|ropsten|rinkeby>
+```
 Replace <Your_Infura_Project_ID> with your Infura project ID.
 Set the network to either mainnet or a testnet like ropsten or rinkeby.
-4. Run the Development Server
-bash
-Copy code
+
+### 4. Run the Development Server
+```bash
+
 npm start
 # or
 yarn start
@@ -87,7 +89,6 @@ We welcome contributions to ForkDelta! Please follow these steps to contribute:
 Fork the repository.
 Create a new branch for your feature or bugfix:
 ```bash
-Copy code
 git checkout -b feature-name
 ```
 Commit your changes and push to your fork:
