@@ -21,7 +21,7 @@ Before running ForkDelta, ensure you have the following:
 - **MetaMask** or a similar Ethereum wallet browser extension
 - Access to an Ethereum node (e.g., Infura or local node)
 
-### File Structure
+### Primative File Structure (may differ from current)
 
 ```bash
 project/
