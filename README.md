@@ -21,6 +21,17 @@ Before running ForkDelta, ensure you have the following:
 - **MetaMask** or a similar Ethereum wallet browser extension
 - Access to an Ethereum node (e.g., Infura or local node)
 
+### File Structure
+
+```bash
+project/
+│
+├── index.html       // Main HTML file
+├── style.css        // Basic styling
+├── app.js           // JavaScript logic for interacting with the contract
+└── web3.min.js      // Web3.js library
+```
+
 ## Getting Started
 
 Follow these steps to set up and run the project locally:
@@ -145,14 +156,3 @@ This project is licensed under the zCHG.org License. See the LICENSE file for de
 
 ### Acknowledgements
 ForkDelta is a fork of the EtherDelta decentralized exchange. Special thanks to the Ethereum community for providing the tools and resources that made this project possible.
-
-File Structure
-arduino
-```bash
-project/
-│
-├── index.html       // Main HTML file
-├── style.css        // Basic styling
-├── app.js           // JavaScript logic for interacting with the contract
-└── web3.min.js      // Web3.js library
-```
